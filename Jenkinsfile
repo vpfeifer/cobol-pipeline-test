@@ -1,9 +1,15 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Unit Tests') {
             steps {
-                echo 'Hello world!' 
+                bat 'cd win' 
+                bat 'run-ut SAMPLEC SAMPLE SAMPLET'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy to mainframe' 
             }
         }
     }
