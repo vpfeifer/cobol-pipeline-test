@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Unit Tests') {
             steps {
-                bat 'cd win' 
                 bat 'run-ut SAMPLEC SAMPLE SAMPLET'
             }
         }
