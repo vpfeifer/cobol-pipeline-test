@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps{
-                bat 'compile SAMPLE'
+                bat 'cobc src/SAMPLE.CBL'
             }
         }
         stage('Unit Tests') {
