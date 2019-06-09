@@ -107,8 +107,6 @@ if /I %VERBOSE% equ true (
   echo INFO: COBCPY is %COBCPY%
 )
 
-echo ====== COMPILE IS NEXT ======
-
 cobc -I %MAINCPY% -I %TESTCPY% -conf=%COBCONFIG% %COBOPTS% %SOURCE%\%PROGRAMNAME%.CBL
 
 if errorlevel 0 (

@@ -16,10 +16,10 @@
            PERFORM UT-INITIALIZE
 
            DISPLAY SPACE
-           DISPLAY "TEST SUITE:"
-           DISPLAY
+           DISPLAY "<testsuite"
+           " name="""
            'GREETING AND FAREWELL (FAREWELL WILL FAIL)'
-           DISPLAY SPACE
+           """>"
 
            MOVE 'IT RETURNS HELLO, WORLD! AS GREETING'
                TO UT-TEST-CASE-NAME

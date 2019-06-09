@@ -2325,22 +2325,20 @@
       *
       * into
       *     DISPLAY SPACE
-      *     DISPLAY 'TEST SUITE:'
-      *     DISPLAY [description]
-      *     DISPLAY SPACE
+      *     <testsuite name="[description]">
       *****************************************************************
            ADD 9 TO KEYWORD-OFFSET
            MOVE TEST-CASE-LINE(KEYWORD-OFFSET:72) TO TOKEN(2)
            INITIALIZE GENERATED-SOURCE-STATEMENTS
            MOVE 'DISPLAY SPACE' TO GENERATED-SOURCE-STATEMENT(1)
                    (STATEMENT-OFFSET:STATEMENT-LENGTH)
-           MOVE 'DISPLAY "TEST SUITE:"' TO GENERATED-SOURCE-STATEMENT(2)
+           MOVE 'DISPLAY "<testsuite"' TO GENERATED-SOURCE-STATEMENT(2)
                    (STATEMENT-OFFSET:STATEMENT-LENGTH)
-           MOVE 'DISPLAY' TO GENERATED-SOURCE-STATEMENT(3)
+           MOVE '" name="""' TO GENERATED-SOURCE-STATEMENT(3)
                    (STATEMENT-OFFSET:STATEMENT-LENGTH) 
            MOVE TOKEN(2) TO GENERATED-SOURCE-STATEMENT(4)                  
                    (STATEMENT-OFFSET:STATEMENT-LENGTH) 
-           MOVE 'DISPLAY SPACE' TO GENERATED-SOURCE-STATEMENT(5)
+           MOVE '""">"' TO GENERATED-SOURCE-STATEMENT(5)                  
                    (STATEMENT-OFFSET:STATEMENT-LENGTH)
            PERFORM 9440-WRITE-GENERATED-STMTS
            SET SUPPRESS-COPY-SOURCE TO TRUE        

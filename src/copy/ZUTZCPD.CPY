@@ -1,12 +1,13 @@
       * ZUTZCPD.CPY
-           DISPLAY SPACE
-           MOVE UT-TEST-CASE-COUNT TO UT-TEST-CASE-NUMBER
-           DISPLAY UT-TEST-CASE-NUMBER ' TEST CASES WERE EXECUTED'
-           MOVE UT-NUMBER-PASSED TO UT-TEST-CASE-NUMBER
-           DISPLAY UT-TEST-CASE-NUMBER ' PASSED'
-           MOVE UT-NUMBER-FAILED TO UT-TEST-CASE-NUMBER
-           DISPLAY UT-TEST-CASE-NUMBER ' FAILED'
-           DISPLAY "================================================="
+           DISPLAY '</testsuite>'
+      *     DISPLAY SPACE
+      *     MOVE UT-TEST-CASE-COUNT TO UT-TEST-CASE-NUMBER
+      *     DISPLAY UT-TEST-CASE-NUMBER ' TEST CASES WERE EXECUTED'
+      *     MOVE UT-NUMBER-PASSED TO UT-TEST-CASE-NUMBER
+      *     DISPLAY UT-TEST-CASE-NUMBER ' PASSED'
+      *     MOVE UT-NUMBER-FAILED TO UT-TEST-CASE-NUMBER
+      *     DISPLAY UT-TEST-CASE-NUMBER ' FAILED'
+      *     DISPLAY "================================================="
            MOVE UT-RETCODE TO RETURN-CODE
            GOBACK.
 
@@ -49,23 +50,30 @@
 
        UT-DISPLAY-PASSED.
            ADD 1 TO UT-NUMBER-PASSED
-           DISPLAY UT-PASSED 
-                   UT-TEST-CASE-NUMBER '. ' 
-                   UT-TEST-CASE-NAME
+           DISPLAY '    <testcase name="'
+                    UT-TEST-CASE-NAME
+                    '"/>'
            .              
 
        UT-DISPLAY-FAILED.
            ADD 1 TO UT-NUMBER-FAILED
-           DISPLAY UT-FAILED 
-                   UT-TEST-CASE-NUMBER '. ' 
-                   UT-TEST-CASE-NAME
+           DISPLAY '    <testcase name="'
+                    UT-TEST-CASE-NAME
+                    '">'
+
+           DISPLAY '     <failure' 
+                   ' type="junit.framework.AssertionFailedError">'
+
            IF UT-COMPARE-NUMERIC
-               DISPLAY '    EXPECTED ' UT-EXPECTED-NUMERIC
+               DISPLAY '        EXPECTED ' UT-EXPECTED-NUMERIC
                        ', WAS ' UT-ACTUAL-NUMERIC
            ELSE                     
-               DISPLAY '    EXPECTED <' UT-EXPECTED 
+               DISPLAY '        EXPECTED <' UT-EXPECTED 
                        '>, WAS <' UT-ACTUAL '>'
-           END-IF            
+           END-IF
+
+           DISPLAY '     </failure>'
+           DISPLAY '    </testcase>'
            MOVE 4 TO UT-RETCODE
            .
 
