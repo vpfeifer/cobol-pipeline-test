@@ -10,12 +10,13 @@ pipeline {
             steps {
                 bat 'cobc -xv src\\ZUTZCPC.CBL'
                 bat """
-                    set SRCPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src\\SAMPLE.CBL
-                    && set SOURCE=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src
-                    && set TESTPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\TESTPRG.CBL
-                    && set TESTNAME=TESTPRG
-                    && set UTSTCFG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\resources\\SAMPLEC
-                    set UTESTS=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET
+                    set MAINPATH=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test
+                    set SRCPRG=%MAINPATH%\\src\\SAMPLE.CBL
+                    set SOURCE=%MAINPATH%\\src
+                    set TESTPRG=%MAINPATH%\\tests\\TESTPRG.CBL
+                    set TESTNAME=TESTPRG
+                    set UTSTCFG=%MAINPATH%\\tests\\resources\\SAMPLEC
+                    set UTESTS=%MAINPATH%\\tests\\unit-tests\\SAMPLET
                     && src\\ZUTZCPC
                     """
                 bat 'cobc -xv tests\\TESTPRG.CBL'
