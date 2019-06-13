@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        SRCPRG='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src\\SAMPLE.CBL'
+        MAINPATH='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test'
+        SRCPRG='%MAINPATH%\\src\\SAMPLE.CBL'
         SOURCE='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src'
         TESTPRG='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
         TESTNAME='TESTPRG'
