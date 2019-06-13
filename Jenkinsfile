@@ -8,12 +8,12 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                bat 'set SRCPRG=c:\\projects\\cobol-pipeline-test\\src\\SAMPLE.CBL'
-                bat 'set SOURCE=c:\\projects\\cobol-pipeline-test\\src'
-                bat 'set TESTPRG=c:\\projects\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
+                bat 'set SRCPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src\\SAMPLE.CBL'
+                bat 'set SOURCE=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src'
+                bat 'set TESTPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
                 bat 'set TESTNAME=TESTPRG'
-                bat 'set UTSTCFG=c:\\projects\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
-                bat 'set UTESTS=c:\\projects\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
+                bat 'set UTSTCFG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
+                bat 'set UTESTS=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
                 bat 'cobc -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -xv tests\\TESTPRG.CBL'
