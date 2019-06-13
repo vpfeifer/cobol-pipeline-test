@@ -1,12 +1,12 @@
 pipeline {
     agent any
     environment {
-        SRCPRG=c:\projects\cobol-pipeline-test\src\SAMPLE.CBL
-        SOURCE=c:\projects\cobol-pipeline-test\src
-        TESTPRG=c:\projects\cobol-pipeline-test\tests\TESTPRG.CBL
-        TESTNAME=TESTPRG
-        UTSTCFG=c:\projects\cobol-pipeline-test\tests\resources\SAMPLEC
-        UTESTS=c:\projects\cobol-pipeline-test\tests\unit-tests\SAMPLET
+        SRCPRG='c:\\projects\\cobol-pipeline-test\\src\\SAMPLE.CBL'
+        SOURCE='c:\\projects\\cobol-pipeline-test\\src'
+        TESTPRG='c:\projects\cobol-pipeline-test\tests\TESTPRG.CBL'
+        TESTNAME='TESTPRG'
+        UTSTCFG='c:\\projects\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
+        UTESTS='c:\\projects\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
     } 
     stages {
         stage('Compile') {
