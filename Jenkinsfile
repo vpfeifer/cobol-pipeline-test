@@ -16,6 +16,7 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
+                echo env.SRCPRG
                 bat 'cobc -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
