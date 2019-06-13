@@ -18,7 +18,7 @@
            DISPLAY SPACE
            DISPLAY "<testsuite"
            " name="""
-           'GREETING AND FAREWELL (FAREWELL WILL FAIL)'
+           'GREETING AND FAREWELL'
            """>"
 
            MOVE 'IT RETURNS HELLO, WORLD! AS GREETING'
@@ -35,7 +35,7 @@
            PERFORM UT-ASSERT-EQUAL
 
            PERFORM UT-AFTER
-           MOVE 'IT RETURNS GOODBYE, CRUEL WORLD! AS FAREWELL'
+           MOVE 'IT RETURNS GOODBYE, WORLD! AS FAREWELL'
                TO UT-TEST-CASE-NAME
            PERFORM UT-BEFORE
            MOVE 'FAREWELL' TO WS-MESSAGE-TYPE
@@ -43,7 +43,7 @@
            ADD 1 TO UT-TEST-CASE-COUNT
            SET UT-NORMAL-COMPARE TO TRUE
            MOVE WS-MESSAGE TO UT-ACTUAL
-           MOVE 'GOODBYE, CRUEL WORLD!'
+           MOVE 'GOODBYE, WORLD!'
                        TO UT-EXPECTED
            SET UT-COMPARE-DEFAULT TO TRUE
            PERFORM UT-ASSERT-EQUAL
@@ -69,7 +69,7 @@
                MOVE 'HELLO, WORLD!' TO WS-MESSAGE
            END-IF
            IF WS-MESSAGE-TYPE IS EQUAL TO 'FAREWELL'
-               MOVE 'SEE YOU LATER, ALLIGATOR!' TO WS-MESSAGE
+               MOVE 'GOODBYE, WORLD!' TO WS-MESSAGE
            END-IF
 
 
