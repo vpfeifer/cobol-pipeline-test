@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Compile') {
             steps{
-                bat 'cobc src/*.CBL -xv'
+                bat 'cobc src/*.CBL -v'
             }
         }
         stage('Unit Tests') {
@@ -14,6 +14,7 @@ pipeline {
                 bat 'set TESTNAME=TESTPRG'
                 bat 'set UTSTCFG=c:\\projects\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
                 bat 'set UTESTS=c:\\projects\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
+                bat 'cobc -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -xv tests\\TESTPRG.CBL'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
