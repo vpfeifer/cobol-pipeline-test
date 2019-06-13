@@ -1,13 +1,12 @@
 pipeline {
     agent any
     environment {
-        MAINPATH='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test'
-        SRCPRG='%MAINPATH%\\src\\SAMPLE.CBL'
-        SOURCE='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src'
-        TESTPRG='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
+        SRCPRG='C:\\Projects\\cobol-pipeline-test\\src\\SAMPLE.CBL'
+        SOURCE='C:\\Projects\\cobol-pipeline-test\\src'
+        TESTPRG='C:\\Projects\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
         TESTNAME='TESTPRG'
-        UTSTCFG='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
-        UTESTS='C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
+        UTSTCFG='C:\\Projects\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
+        UTESTS='C:\\Projects\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
     } 
     stages {
         stage('Compile') {
