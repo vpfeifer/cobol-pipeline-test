@@ -1,16 +1,18 @@
-set "SRCPRG=..\src\SAMPLE.CBL"
-set "SOURCE=%MAINSRC%"
-set "TESTPRG=%TESTSRC%\TESTPRG.CBL"
-set "TESTNAME=TESTPRG"
-set "UTSTCFG=%CONFIGFILE%"
-set "UTESTS=%UNITTESTFILE%"
+@echo off
 
-%TARGET%\ZUTZCPC
+set SRCPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src\\SAMPLE.CBL
+set SOURCE=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\src
+set TESTPRG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\TESTPRG.CBL
+set TESTNAME=TESTPRG
+set UTSTCFG=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\resources\\SAMPLEC
+set UTESTS=C:\\Program Files (x86)\\Jenkins\\workspace\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET
 
-if errorlevel 0 (
-  if /I %SUBPROGRAM% equ true (
-    goto testsubprogram
-  ) else (
-    goto testmainprogram  
-  )  
-)
+cobc -xv src\\ZUTZCPC.CBL
+
+src\\ZUTZCPC
+
+cobc -xv tests\\TESTPRG.CBL
+
+cobc -I src\\copy -xv tests\\TESTPRG.CBL
+
+tests\\TESTPRG
