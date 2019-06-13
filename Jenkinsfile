@@ -16,10 +16,10 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                echo env.SRCPRG
                 bat 'cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
+                bat 'tests\\TESTPRG'
                 bat 'tests\\TESTPRG > testResults.xml'
             }
         }
