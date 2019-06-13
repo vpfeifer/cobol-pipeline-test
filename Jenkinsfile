@@ -3,7 +3,7 @@ pipeline {
     environment {
         SRCPRG='c:\\projects\\cobol-pipeline-test\\src\\SAMPLE.CBL'
         SOURCE='c:\\projects\\cobol-pipeline-test\\src'
-        TESTPRG='c:\projects\cobol-pipeline-test\tests\TESTPRG.CBL'
+        TESTPRG='c:\\projects\\cobol-pipeline-test\\tests\\TESTPRG.CBL'
         TESTNAME='TESTPRG'
         UTSTCFG='c:\\projects\\cobol-pipeline-test\\tests\\resources\\SAMPLEC'
         UTESTS='c:\\projects\\cobol-pipeline-test\\tests\\unit-tests\\SAMPLET'
@@ -17,7 +17,7 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 echo env.SRCPRG
-                bat 'cobc -xv src\\ZUTZCPC.CBL'
+                bat 'cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
                 bat 'tests\\TESTPRG > testResults.xml'
