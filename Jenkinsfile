@@ -17,7 +17,7 @@ pipeline {
                     set TESTNAME=TESTPRG
                     set UTSTCFG=%MAINPATH%\\tests\\resources\\SAMPLEC
                     set UTESTS=%MAINPATH%\\tests\\unit-tests\\SAMPLET
-                    && src\\ZUTZCPC
+                    src\\ZUTZCPC
                     """
                 bat 'cobc -xv tests\\TESTPRG.CBL'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
