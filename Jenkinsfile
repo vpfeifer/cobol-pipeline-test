@@ -21,7 +21,7 @@ pipeline {
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
                 bat 'tests\\TESTPRG'
                 bat 'tests\\TESTPRG > testResults.xml'
-                junit 'build/reports/**/*.xml'
+                junit 'testResults.xml'
             }
         }
         stage('Deploy') {
