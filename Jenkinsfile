@@ -28,5 +28,9 @@ pipeline {
                 echo 'Deploy to mainframe' 
             }
         }
+    }post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
     }
 }
