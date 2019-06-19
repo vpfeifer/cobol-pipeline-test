@@ -21,16 +21,13 @@ pipeline {
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
                 bat 'tests\\TESTPRG'
                 bat 'tests\\TESTPRG > testResults.xml'
+                junit 'build/reports/**/*.xml'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Deploy to mainframe' 
             }
-        }
-    }post {
-        always {
-            junit 'build/reports/**/*.xml'
         }
     }
 }
