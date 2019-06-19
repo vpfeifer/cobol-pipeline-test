@@ -15,7 +15,7 @@
 
        2000-SPEAK.
            IF WS-MESSAGE-TYPE IS EQUAL TO 'GREETING'
-               MOVE 'HELLO, WORLD!' TO WS-MESSAGE
+               MOVE 'HELLO, WOLD!' TO WS-MESSAGE
            END-IF  
            IF WS-MESSAGE-TYPE IS EQUAL TO 'FAREWELL'
                MOVE 'GOODBYE, WORLD!' TO WS-MESSAGE  
