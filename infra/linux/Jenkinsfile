@@ -11,16 +11,16 @@ pipeline {
     stages {
         stage('Compile') {
             steps{
-                bash 'cobc ../../src/*.CBL -v'
+                sh 'cobc ../../src/*.CBL -v'
             }
         }
         stage('Unit Tests') {
             steps {
-                bash 'cobc -xv -std=ibm ../../src/ZUTZCPC.CBL'
-                bash './ZUTZCPC'
-                bash 'cobc -xv -I ../../src/copy -std=ibm ../../tests/TESTPRG.CBL'
-                bash './TESTPRG'
-                bash './TESTPRG > testResults.xml'
+                sh 'cobc -xv -std=ibm ../../src/ZUTZCPC.CBL'
+                sh './ZUTZCPC'
+                sh 'cobc -xv -I ../../src/copy -std=ibm ../../tests/TESTPRG.CBL'
+                sh './TESTPRG'
+                sh './TESTPRG > testResults.xml'
                 junit 'testResults.xml'
             }
         }
