@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    environment {
+        SRCPRG='/home/vpfeifer/projects/cobol-pipeline/cobol-pipeline-test/src/SAMPLE.CBL'
+        SOURCE='/home/vpfeifer/projects/cobol-pipeline/cobol-pipeline-test/src/'
+        TESTPRG='/home/vpfeifer/projects/cobol-pipeline/cobol-pipeline-test/tests/TESTPRG.CBL'
+        TESTNAME='TESTPRG'
+        UTSTCFG='/home/vpfeifer/projects/cobol-pipeline/cobol-pipeline-test/tests/resources/SAMPLEC'
+        UTESTS='/home/vpfeifer/projects/cobol-pipeline/cobol-pipeline-test/tests/unit-tests/SAMPLET'
+    } 
+    stages {
+        stage('Compile') {
+            steps{
+                bash 'cobc ../../src/*.CBL -v'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                bash 'cobc -xv -std=ibm ../../src/ZUTZCPC.CBL'
+                bash './ZUTZCPC'
+                bash 'cobc -xv -I ../../src/copy -std=ibm ../../tests/TESTPRG.CBL'
+                bash './TESTPRG'
+                bash './TESTPRG > testResults.xml'
+                junit 'testResults.xml'
+            }
+        }
+        stage('Code Analysis')
+        {
+            steps{
+                echo 'SonarCobol License or try to execute qcCobol on mainframe via REXX'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy to mainframe' 
+            }
+        }
+    }
+}
