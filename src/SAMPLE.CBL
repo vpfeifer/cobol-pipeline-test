@@ -1,8 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID.  SAMPLE.
-      *****************************************************************
-      * TRIVIAL PROGRAM TO EXERCISE ZUTZCPC.
-      *****************************************************************       
+       PROGRAM-ID.  SAMPLE.     
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
@@ -18,7 +15,7 @@
                MOVE 'HELLO, WORLD!' TO WS-MESSAGE
            END-IF  
            IF WS-MESSAGE-TYPE IS EQUAL TO 'FAREWELL'
-               MOVE 'GOODBYE, WORRRRLD!' TO WS-MESSAGE  
+               MOVE 'GOODBYE, WORLD!' TO WS-MESSAGE  
            END-IF    
            .    
 
