@@ -17,11 +17,11 @@ pipeline {
         stage('Unit Tests') {
             steps {
                 bat """
-                cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
-                'src\\ZUTZCPC'
-                'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
-                'tests\\TESTPRG'
-                'tests\\TESTPRG > testResults.xml'
+                cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL
+                src\\ZUTZCPC
+                cobc -I src\\copy -xv tests\\TESTPRG.CBL
+                tests\\TESTPRG
+                tests\\TESTPRG > testResults.xml
                 """
                 junit 'testResults.xml'
             }
