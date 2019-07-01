@@ -16,7 +16,6 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                def files = findFiles(glob : 'src/*.CBL')
                 bat """
                 cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
