@@ -1,0 +1,61 @@
+pipeline {
+    agent any
+    environment {
+        SRCPRG='/var/lib/jenkins/workspace/cobol-pipeline-test/src/SAMPLE.CBL'
+        SOURCE='/var/lib/jenkins/workspace/cobol-pipeline-test/src/'
+        TESTPRG='/var/lib/jenkins/workspace/cobol-pipeline-test/tests/TESTPRG.CBL'
+        TESTNAME='TESTPRG'
+        UTSTCFG='/var/lib/jenkins/workspace/cobol-pipeline-test/tests/resources/SAMPLEC'
+        UTESTS='/var/lib/jenkins/workspace/cobol-pipeline-test/tests/unit-tests/SAMPLET'
+    } 
+    stages {
+        stage('Compile Programs') {
+            steps{
+                sh 'cobc src/*.CBL -v'
+            }
+        }
+        stage('Unit Tests') {
+            steps {
+                sh 'cobc -xv -std=ibm src/ZUTZCPC.CBL'
+                sh './ZUTZCPC'
+                sh 'cobc -xv -I src/copy -std=ibm tests/TESTPRG.CBL'
+                sh './TESTPRG'
+                sh './TESTPRG > testResults.xml'
+                junit 'testResults.xml'
+            }
+        }
+        stage('Integration Tests')
+        {
+            steps{
+                echo 'SonarCobol License or try to execute qcCobol on mainframe via REXX'
+            }
+        }
+        stage('Code Analysis')
+        {
+            steps{
+                echo 'SonarCobol License or try to execute qcCobol on mainframe via REXX'
+            }
+        }
+        stage('Deploy Dev') {
+            steps {
+                echo 'Deploy to mainframe' 
+            }
+        }
+        stage('Acceptance Tests')
+        {
+            steps{
+                echo 'SonarCobol License or try to execute qcCobol on mainframe via REXX'
+            }
+        }
+        stage('Deploy Homolog') {
+            steps {
+                echo 'Promote package on mainframe' 
+            }
+        }
+        stage('Deploy Prod') {
+            steps {
+                echo 'Promote package on mainframe' 
+            }
+        }
+    }
+}

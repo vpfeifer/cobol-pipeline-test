@@ -1,8 +1,5 @@
        IDENTIFICATION DIVISION.
-       PROGRAM-ID.  SAMPLE.
-      *****************************************************************
-      * TRIVIAL PROGRAM TO EXERCISE ZUTZCPC.
-      *****************************************************************       
+       PROGRAM-ID.  SAMPLE.     
        ENVIRONMENT DIVISION.
        INPUT-OUTPUT SECTION.
        FILE-CONTROL.
