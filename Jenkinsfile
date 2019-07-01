@@ -16,12 +16,15 @@ pipeline {
         }
         stage('Unit Tests') {
             steps {
-                bat 'cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
+                def files = findFiles(glob : 'src/*.CBL')
+                bat """
+                cobc -I src\\copy -conf=c:\\GnuCOBOL\\config\\ibm.conf -xv src\\ZUTZCPC.CBL'
                 bat 'src\\ZUTZCPC'
                 bat 'cobc -I src\\copy -xv tests\\TESTPRG.CBL'
                 bat 'tests\\TESTPRG'
                 bat 'tests\\TESTPRG > testResults.xml'
                 junit 'testResults.xml'
+                """
             }
         }
         stage('Deploy') {
