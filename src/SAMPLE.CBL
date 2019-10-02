@@ -15,7 +15,7 @@
                MOVE 'HELLO, WORLD!' TO WS-MESSAGE
            END-IF  
            IF WS-MESSAGE-TYPE IS EQUAL TO 'FAREWELL'
-               MOVE 'GOOOOOOOOOOOOOODBYE, WORLD!' TO WS-MESSAGE  
+               MOVE 'GOODBYE, WORLD!' TO WS-MESSAGE  
            END-IF    
            .    
 
